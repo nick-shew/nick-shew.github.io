@@ -8,6 +8,8 @@
     "animejs": "^3.1.0",
     "bootstrap": "^4.4.1",
     "famfamfam-silk": "^1.0.0",
+    "gulp-copy": "^4.0.1",
+    "gulp-gh-pages": "^0.5.4",
     "jquery": "^3.4.1",
     "jquery-slim": "^3.0.0",
     "popper.js": "^1.16.0"
