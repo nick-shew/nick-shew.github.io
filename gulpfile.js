@@ -1,15 +1,8 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var sass = require('gulp-sass');
-var deploy = require('gulp-gh-pages');
-
-gulp.task('deploy', function () {
-    return gulp.src("./prod/**/*")
-      .pipe(deploy({ 
-        remoteUrl: "https://github.com/nick-shew/nick-shew.github.io.git",
-        branch: "master"
-      }))
-  });
+const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
+const sass = require('gulp-sass');
+const deploy = require('gulp-gh-pages');
+const copy = require('gulp-copy');
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', gulp.series(function () {
@@ -45,5 +38,24 @@ gulp.task('serve', gulp.series('sass', function () {
     gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss','node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss', 'src/scss/*.scss'], gulp.series('sass'));
     gulp.watch("src/*.html").on('change', browserSync.reload);
 }));
+
+//copy requisite files to prod directory
+gulp.task('copy', function() {
+    const sourceFiles = [
+      'src/**/*',
+      'package.json']
+    const destination = './prod/'
+    return gulp.src(sourceFiles)
+      .pipe(gulp.dest(destination))
+  });
+
+//deploy to github master
+gulp.task('deploy', gulp.series('copy',function () {
+    return gulp.src("./prod/**/*")
+      .pipe(deploy({ 
+        remoteUrl: "https://github.com/nick-shew/nick-shew.github.io.git",
+        branch: "master"
+      }))
+  }));
 
 gulp.task('default', gulp.series('js', 'sprites', 'serve'));
