@@ -1,6 +1,6 @@
 $(document).ready(function () {
     writeFullName();
-    $("#actual_content").load("experience.html");
+    $("#actual_content").load("include/experience.html");
     writeContactInfo();
 });
 
