@@ -43,7 +43,8 @@ gulp.task('serve', gulp.series('sass', function () {
 gulp.task('copy', function() {
     const sourceFiles = [
       'src/**/*',
-      'package.json']
+      'package.json',
+      '.nojekyll']
     const destination = './prod/'
     return gulp.src(sourceFiles)
       .pipe(gulp.dest(destination))
