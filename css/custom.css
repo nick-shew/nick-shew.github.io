@@ -7139,11 +7139,8 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 .footer, .jumbotron {
-  background-color: #2a3f81;
+  background-color: #ff3030;
   color: white; }
-
-.jumbotron {
-  text-shadow: 1px 1px 2px black; }
 
 p {
   padding: 0;
@@ -7156,13 +7153,8 @@ p {
   color: white; }
 
 .parallax {
-  background-image: url("../img/header.jpg");
+  background-image: url("../img/spheres-right-noshading.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover; }
-
-.jumbotron.parallax {
-  background-position: left 50% bottom -70%; }
-
-.footer.parallax {
-  background-position: left 50% bottom 0%; }
+  background-size: 10%;
+  background-position: top right; }
