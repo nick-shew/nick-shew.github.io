@@ -36,13 +36,13 @@ gulp.task('serve', gulp.series('sass', function () {
         server: "./src"
     });
     gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss','node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss', 'src/scss/*.scss'], gulp.series('sass'));
-    gulp.watch("src/*.html").on('change', browserSync.reload);
+    gulp.watch("src/**/*.html").on('change', browserSync.reload);
 }));
 
 //copy requisite files to prod directory
 gulp.task('copy', function() {
     const sourceFiles = [
-      'src/**/*',
+      './src/**/*',
       'package.json',
       '.nojekyll']
     const destination = './prod/'
