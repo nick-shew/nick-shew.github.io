@@ -1,6 +1,8 @@
 $(document).ready(function () {
     writeFullName();
-    $("#actual_content").load("include/experience.html");
+    $("#actual_content").load("include/experience.html", function(){
+        wrapSkillsTableContentsInList();
+    });
     writeContactInfo();
 });
 
@@ -8,6 +10,7 @@ function writeContactInfo(){
     writeEmail();
     writePhone();
     writeLinkedIn();
+    writeGH();
 }
 
 function writeFullName() {
@@ -29,4 +32,18 @@ function writePhone(){
 function writeLinkedIn(){
     const url = "https://www.linkedin.com/in/nick-shew/";
     $("#contact_li").html(`<a href="${url}">nick-shew</a>`);
+}
+
+function writeGH(){
+    const url = "https://github.com/nick-shew/";
+    $("#contact_gh").html(`<a href="${url}">nick-shew</a>`);
+}
+
+function wrapSkillsTableContentsInList(){
+    //all for best practices
+    $(".skills-table td").each(function(){
+        var contents = $(this).html();
+        console.log(contents);
+        $(this).html(`<ul class="skills-ul"><li>${contents}</li></ul>`);
+    })
 }

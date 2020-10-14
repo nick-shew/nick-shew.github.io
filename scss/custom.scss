@@ -37,3 +37,18 @@ p {
   background-size: 10%;
   background-position: top right;
 }
+
+.skills-table{
+  @extend .table;
+  @extend .table-borderless;
+  @extend .table-sm;
+}
+.skills-ul{
+  margin-bottom: 0;
+}
+
+.project-description{
+  @extend .text-muted;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
